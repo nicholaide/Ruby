@@ -1,2 +1,6 @@
-<h1>Say#goodbye</h1>
-<p>Find me in app/views/say/goodbye.html.erb</p>
+<h1>Goodbye!</h1>
+<p>It was nice having you here.</p>
+<p> This is a list of files </p>
+<% for file in @files %>
+<ul> file name is <%= file %> </ul>
+<% end %>
