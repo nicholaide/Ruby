@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+
+#en:
+ # activerecord:
+ #   errors:
+ #     models:
+ #       product:
+ #         attributes:
+#            title:
+ #             taken: "is TAKEN BY FORCE"
