@@ -1,4 +1,6 @@
 Utsw::Application.routes.draw do
+  resources :patients
+
   resources :diagnoses
 
   resources :doctors
