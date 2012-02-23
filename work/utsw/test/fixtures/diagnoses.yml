@@ -3,9 +3,9 @@
 one:
   name: MyString
   description: MyString
-  reference_numer: MyString
+  reference_number: MyString
 
 two:
   name: MyString
   description: MyString
-  reference_numer: MyString
+  reference_number: MyString

@@ -3,7 +3,7 @@ class CreateDiagnoses < ActiveRecord::Migration
     create_table :diagnoses do |t|
       t.string :name
       t.string :description
-      t.string :reference_numer
+      t.string :reference_number
 
       t.timestamps
     end
