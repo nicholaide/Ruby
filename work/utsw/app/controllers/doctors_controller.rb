@@ -24,7 +24,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/new
   # GET /doctors/new.json
   def new
-    @doctor = Doctor.new
+    @doctor = Doctor.new(:degrees => "MD")
 
     respond_to do |format|
       format.html # new.html.erb
