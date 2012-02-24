@@ -4,6 +4,7 @@ class Doctor < ActiveRecord::Base
   
   #validations
   validates :first_name, :last_name, :presence => true
+  #add validation for email here
   
 
 end

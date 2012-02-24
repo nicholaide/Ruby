@@ -4,6 +4,7 @@
   <tr>
     <th>First name</th>
     <th>Last name</th>
+    <th>Email</th>
     <th>Degrees</th>
     <th>Portrait</th>
     <th></th>
@@ -15,7 +16,8 @@
   <tr>
     <td><%= doctor.first_name %></td>
     <td><%= doctor.last_name %></td>
-    <td><%= doctor.degrees %></td>
+    <td><%= doctor.email %></td>
+    <td><%= doctor.degrees %></td>    
     <td><%= doctor.portrait %></td>
     <td><%= link_to 'Show', doctor %></td>
     <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
