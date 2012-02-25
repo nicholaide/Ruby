@@ -6,7 +6,8 @@
 
 <% @patients.each do |patient| %>
         <div class="entry">
-        <%= link_to(patient.first_name + " " + patient.last_name, 'http://www.google.com', html_options = {}) %>
+        <%= link_to(patient.first_name + " " + patient.last_name, edit_patient_path(patient)) %>
+        <!--comment: the path is similar to the edit button of of the index page-->
         <%= patient.age %>
         <%= patient.doctor.first_name + " " + patient.doctor.last_name %>
         <%= patient.diagnosis.name %>

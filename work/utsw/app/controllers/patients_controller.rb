@@ -34,7 +34,8 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    @patient = Patient.find(params[:id])
+    #@patient = Patient.find(params[:id])
+    @patient = Patient.find(params[:id], :include => [:diagnosis, :doctor ] )
   end
 
   # POST /patients
