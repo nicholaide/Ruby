@@ -23,20 +23,17 @@
     <%= f.label :age %><br />
     <%= f.text_field :age %>
   </div>
+  
   <div class="field">
-    <%= f.label :doctor_id %><br />
-    <%= f.text_field :doctor_id %>
-  </div>
-
-  <div>
     <%= f.label :doctor_id %><br />
     <%= f.collection_select :doctor_id, Doctor.all, :id, :full_name %>
   </div>
 
   <div class="field">
     <%= f.label :diagnosis_id %><br />
-    <%= f.text_field :diagnosis_id %>
+    <%= f.collection_select :diagnosis_id, Diagnosis.all, :id, :name%>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
