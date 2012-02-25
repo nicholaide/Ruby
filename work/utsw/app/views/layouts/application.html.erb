@@ -3,13 +3,42 @@
 <head>
   <title>Utsw</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "depot", :media => "all" %>
+  <%= stylesheet_link_tag    "site", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    UTSW MVC Sample
+                </h1>
+            </div>
+            <div class="clear hideSkiplink">
+                <div class="menu" id="NavigationMenu" style="float: left; " >
+        	  <ul class="level1" tabindex="0" style="position: relative; width: auto; float: left; " role="menubar">
+	            <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Home', front_url %></li>
+                    <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Patients', patients_path %></li>
+                    <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Doctors', doctors_path %></li>
+                    <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Diagnoses', diagnoses_path %></li>
+	         </ul>
+                </div>
+           </div>
+        </div>
+       <div style="clear: left; ">
+       </div>
+        <div class="main">
+
+        <%= yield %>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
 
 </body>
 </html>
