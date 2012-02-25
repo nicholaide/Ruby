@@ -1,0 +1,13 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Home page</h1>
+
+<% @patients.each do |patient| %>
+        <div class="entry">
+        <%= link_to(patient.first_name + " " + patient.last_name, 'http://www.google.com', html_options = {}) %>
+        <%= patient.age %>
+        <%= patient.doctor.first_name + " " + patient.doctor.last_name %>
+        <%= patient.diagnosis.name %>
+<% end %>

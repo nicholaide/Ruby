@@ -1,4 +1,7 @@
 class Patient < ActiveRecord::Base
+
+  #order
+  default_scope :order => 'last_name'
   
   #relationships
   belongs_to :doctor
