@@ -1,14 +1,45 @@
+<!--FRONT VIEW-->
+
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Home page</h1>
+<h1>Home</h1>
 
+<br/>
+
+
+<table id="mainlist">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Doctor</th>
+    <th>Diagnosis</th>
+ 
+  </tr>
 <% @patients.each do |patient| %>
-        <div class="entry">
-        <%= link_to(patient.first_name + " " + patient.last_name, edit_patient_path(patient)) %>
-        <!--comment: the path is similar to the edit button of of the index page-->
-        <%= patient.age %>
-        <%= patient.doctor.first_name + " " + patient.doctor.last_name %>
-        <%= patient.diagnosis.name %>
+       
+        <tr class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+
+        <td class="pad">
+           <%= link_to(patient.first_name + " " + patient.last_name, edit_patient_path(patient)) %>
+        </td>
+
+        <td class="pad">
+            <%= patient.age %>
+        </td>
+
+        <td class="pad">
+            <%= patient.doctor.first_name + " " + patient.doctor.last_name %>
+        </td>
+
+        <td class="pad">
+            <%= patient.diagnosis.name %>
+        </td>
+              
+         </tr>
+       
 <% end %>
+
+
+</table>

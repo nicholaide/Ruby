@@ -18,8 +18,11 @@ a:link, a:visited
 
 a:hover
 {
-    color: #1d60ff;
+    /*color: #1d60ff;*/
+    color: #ffffff;
     text-decoration: none;
+    outline: none;
+    background: #0000ff;
 }
 
 a:active
@@ -235,6 +238,50 @@ div.accountInfo
 {
     width: 42%;
 }
+
+
+
+/* TABLES  
+----------------------------------------------------------*/
+
+#mainlist
+{
+   width:100%;
+   border-collapse:collapse;
+}
+
+
+#mainlist td, #mainlist th
+{ 
+    /*padding:10px 40px;
+    align: center;*/
+
+    padding: 3px 7px 2px 7px;
+    font-size:1em;
+ 
+
+}
+
+#mainlist th 
+{
+  font-size:1.1em;
+  text-align:left;
+  padding-top:5px;
+  padding-bottom:4px;
+   background-color:#507CD1;
+  color:#ffffff;
+}
+
+#mainlist .list_line_even {
+  background: #eff3fb;  /*#e0f8f8;*/
+}
+
+#mainlist .list_line_odd {
+  background:   #ffffff;
+}
+
+
+
 
 /* MISC  
 ----------------------------------------------------------*/
