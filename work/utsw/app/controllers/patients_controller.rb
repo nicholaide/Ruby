@@ -13,29 +13,41 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @patient = Patient.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @patient }
+    begin
+      @patient = Patient.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid patient #{params[:id]}"
+      redirect_to front_url, :notice => 'Patient does not exist'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @patient }
+      end
     end
   end
 
   # GET /patients/new
   # GET /patients/new.json
   def new
-    @patient = Patient.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @patient }
-    end
+      @patient = Patient.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render :json => @patient }
+      end
+ 
   end
 
   # GET /patients/1/edit
   def edit
-    #@patient = Patient.find(params[:id])
-    @patient = Patient.find(params[:id], :include => [:diagnosis, :doctor ] )
+    begin
+      @patient = Patient.find(params[:id], :include => [:diagnosis, :doctor ] )
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid patient #{params[:id]}"
+      redirect_to front_url, :notice => 'Patient does not exist'
+    else
+      @patient
+    end
   end
 
   # POST /patients

@@ -21,19 +21,19 @@
        
         <tr class= "<%= cycle('list_line_odd', 'list_line_even') %>">
 
-        <td class="pad">
+        <td>
            <%= link_to(patient.first_name + " " + patient.last_name, edit_patient_path(patient)) %>
         </td>
 
-        <td class="pad">
+        <td>
             <%= patient.age %>
         </td>
 
-        <td class="pad">
+        <td>
             <%= patient.doctor.first_name + " " + patient.doctor.last_name %>
         </td>
 
-        <td class="pad">
+        <td>
             <%= patient.diagnosis.name %>
         </td>
               

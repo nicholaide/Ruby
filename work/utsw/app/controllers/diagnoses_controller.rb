@@ -13,11 +13,16 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses/1
   # GET /diagnoses/1.json
   def show
-    @diagnosis = Diagnosis.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @diagnosis }
+    begin
+      @diagnosis = Diagnosis.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid diagnosis #{params[:id]}"
+      redirect_to front_url, :notice => 'Diagnosis does not exist'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @diagnosis }
+      end
     end
   end
 
@@ -34,7 +39,14 @@ class DiagnosesController < ApplicationController
 
   # GET /diagnoses/1/edit
   def edit
-    @diagnosis = Diagnosis.find(params[:id])
+    begin
+      @diagnosis = Diagnosis.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid diagnosis #{params[:id]}"
+      redirect_to front_url, :notice => 'Diagnosis does not exist'
+    else
+      @diagnosis
+    end
   end
 
   # POST /diagnoses

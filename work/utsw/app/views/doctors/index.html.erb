@@ -1,6 +1,8 @@
 <h1>Listing doctors</h1>
 
-<table>
+<br/>
+
+<table id="mainlist">
   <tr>
     <th>First name</th>
     <th>Last name</th>
@@ -9,19 +11,18 @@
     <th>Portrait</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @doctors.each do |doctor| %>
-  <tr>
+  <tr class= "<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= doctor.first_name %></td>
     <td><%= doctor.last_name %></td>
     <td><%= doctor.email %></td>
     <td><%= doctor.degrees %></td>    
     <td><%= doctor.portrait %></td>
-    <td><%= link_to 'Show', doctor %></td>
+    <!--<td><%= link_to 'Show', doctor %></td>-->
     <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-    <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', doctor, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

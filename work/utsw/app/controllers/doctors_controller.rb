@@ -13,28 +13,42 @@ class DoctorsController < ApplicationController
   # GET /doctors/1
   # GET /doctors/1.json
   def show
-    @doctor = Doctor.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @doctor }
+    begin
+      @doctor = Doctor.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid doctor #{params[:id]}"
+      redirect_to front_url, :notice => 'Doctor does not exist'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @doctor }
+      end
     end
   end
 
   # GET /doctors/new
   # GET /doctors/new.json
   def new
-    @doctor = Doctor.new(:degrees => "MD")
+ 
+      @doctor = Doctor.new(:degrees => "MD")
+    
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @doctor }
-    end
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render :json => @doctor }
+       end
   end
 
   # GET /doctors/1/edit
   def edit
-    @doctor = Doctor.find(params[:id])
+    begin
+      @doctor = Doctor.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid doctor #{params[:id]}"
+      redirect_to front_url, :notice => 'Doctor does not exist'
+    else
+      @doctor 
+     end
   end
 
   # POST /doctors
