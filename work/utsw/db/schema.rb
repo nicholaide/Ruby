@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224201218) do
+ActiveRecord::Schema.define(:version => 20120228191505) do
 
   create_table "diagnoses", :force => true do |t|
     t.string   "name"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20120224201218) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "age"
-    t.integer  "doctor_id"
-    t.string   "diagnosis_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "doctor_id",                   :default => 6
+    t.integer  "diagnosis_id", :limit => 255, :default => 5
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
 end
