@@ -23,6 +23,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'will_paginate', '~> 3.0'
+
 gem "mail", "~> 2.4.1"
 
 # To use ActiveModel has_secure_password

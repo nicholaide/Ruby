@@ -2,8 +2,9 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnosis.all
-
+    #@diagnoses = Diagnosis.all
+     @diagnoses = Diagnosis.paginate :page=>params[:page], :order=>'name asc',
+        :per_page => 3
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @diagnoses }
