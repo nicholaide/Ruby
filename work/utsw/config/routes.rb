@@ -1,4 +1,6 @@
 Utsw::Application.routes.draw do
+  resources :users
+
   get "front/index"
 
   resources :patients
