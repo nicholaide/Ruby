@@ -89,11 +89,16 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1.json
   def destroy
     @doctor = Doctor.find(params[:id])
-    @doctor.destroy
-
+    begin
+      @doctor.destroy
+      flash[:notice] = "Doctor #{@doctor.first_name} deleted."
+    rescue Exception => e
+      flash[:notice] = e.message +  " (" + @doctor.first_name + " " + @doctor.last_name + ")"
+    end
     respond_to do |format|
       format.html { redirect_to doctors_url }
       format.json { head :no_content }
     end
   end
+
 end
