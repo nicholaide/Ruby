@@ -15,20 +15,21 @@
                     UTSW MVC Sample
                 </h1>
             </div>
-            <div class="clear hideSkiplink">
-                <div class="menu" id="NavigationMenu" style="float: left; " >
+            <div class="clear hideSkiplink" >
+                <div class="menu" id="NavigationMenu" style="float: left; outline: none; border: 0px;" >
         	  <ul class="level1" tabindex="0" style="position: relative; width: auto; float: left; " role="menubar">
 	            <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Home', front_url %></li>
                     <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Patients', patients_path %></li>
                     <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Doctors', doctors_path %></li>
                     <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Diagnoses', diagnoses_path %></li>
-  
-                    <% if session[:user_id] %>
+                     <% if session[:user_id] %>
                       <li role="menuitem" class="static" style="position: relative; float: left; "><%= link_to 'Users', users_path %></li>
+                    <% end %>
+	         </ul>
+                
+                      <% if session[:user_id] %>
                       <%= button_to 'Logout', logout_path, :method => :delete %>
                      <% end %>
-                    
-	         </ul>
                 </div>
            </div>
         </div>

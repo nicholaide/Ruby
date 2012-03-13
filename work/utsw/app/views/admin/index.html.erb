@@ -1,6 +1,6 @@
 <h1>Welcome!</h1>
 
-It is currently  <%= Time.now %>
+It is currently  <%= @t.to_s(:long) %>
 
 We have <%= pluralize(@total_patients, "patient") %> in the system.
 

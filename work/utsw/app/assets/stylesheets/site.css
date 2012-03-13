@@ -28,6 +28,8 @@ a:hover
 a:active
 {
     color: #034af3;
+    /*outline: 0;
+    border: 0px;*/
 }
 
 p
@@ -188,6 +190,9 @@ div.menu ul li a:active
     background-color: #465c71;
     color: #cfdbe6;
     text-decoration: none;
+    outline: 0;
+
+}
 }
 
 /* FORM ELEMENTS   
