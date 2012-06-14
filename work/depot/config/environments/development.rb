@@ -24,8 +24,8 @@ Depot::Application.configure do
         :port          => 587, 
         :domain     =>  "domain.of.sender.net",
         :authentication => "plain",
-        :user_name    =>  "teamedatamining",
-        :password     =>  "waterview469",
+        :user_name    =>  "teame",
+        :password     =>  "password",
         :enable_starttls_auto => true
   } 
 
